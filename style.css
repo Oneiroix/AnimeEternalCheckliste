@@ -4,6 +4,7 @@ body {
   color: #f2f2f2;
   margin: 0;
   padding: 2rem;
+  position: relative;
 }
 
 .container {
@@ -33,19 +34,58 @@ h2 {
 }
 
 .item {
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
 }
 
-label {
-  cursor: pointer;
+.checkbox-label {
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  background: #4b0000; /* dunkelrot für unchecked */
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.6rem;
-  accent-color: #00aaff;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.8rem;
+  accent-color: #00ff6a;
+}
+
+/* Checked grün einfärben */
+input[type="checkbox"]:checked + span,
+input[type="checkbox"]:checked ~ * {
+  color: #d3ffd3;
+}
+
+.checkbox-label.checked {
+  background: #006b2f; /* grün */
+}
+
+/* Fortschrittskreis */
+.progress-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.progress-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(#00ff6a 0deg, #444 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 0 8px rgba(0,255,100,0.4);
+  transition: background 0.3s ease;
+}
+
+#progress-text {
+  position: absolute;
 }
